@@ -13,6 +13,7 @@
 		A3DAEE6F2B0B6CFC008CD0F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DAEE6E2B0B6CFC008CD0F0 /* Preview Assets.xcassets */; };
 		A3DAEE822B0B6F92008CD0F0 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE812B0B6F92008CD0F0 /* ExploreView.swift */; };
 		A3DAEE842B0B729A008CD0F0 /* ListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE832B0B729A008CD0F0 /* ListingItemView.swift */; };
+		A3DAEE862B0B7E8C008CD0F0 /* SearchAndFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE852B0B7E8C008CD0F0 /* SearchAndFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A3DAEE6E2B0B6CFC008CD0F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A3DAEE812B0B6F92008CD0F0 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		A3DAEE832B0B729A008CD0F0 /* ListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemView.swift; sourceTree = "<group>"; };
+		A3DAEE852B0B7E8C008CD0F0 /* SearchAndFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A3DAEE812B0B6F92008CD0F0 /* ExploreView.swift */,
+				A3DAEE852B0B7E8C008CD0F0 /* SearchAndFilter.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DAEE862B0B7E8C008CD0F0 /* SearchAndFilter.swift in Sources */,
 				A3DAEE842B0B729A008CD0F0 /* ListingItemView.swift in Sources */,
 				A3DAEE692B0B6CFA008CD0F0 /* ContentView.swift in Sources */,
 				A3DAEE822B0B6F92008CD0F0 /* ExploreView.swift in Sources */,
