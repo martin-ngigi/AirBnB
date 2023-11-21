@@ -31,30 +31,40 @@ struct DestinationSearchView: View {
                     .foregroundStyle(.black)
             }
             
+            // Location
             VStack(alignment: .leading){
-                
-                Text("Where to ?")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-                HStack{
-                    Image(systemName: "magnifyingglass")
-                        .imageScale(.small)
+                if selectedOption == .location {
+                    Text("Where to ?")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     
-                    TextField("Search destination ", text: $destination)
-                        .font(.subheadline)
+                    HStack{
+                        Image(systemName: "magnifyingglass")
+                            .imageScale(.small)
+                        
+                        TextField("Search destination ", text: $destination)
+                            .font(.subheadline)
+                        
+                    }
+                    .frame(height: 44)
+                    .padding(.horizontal)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(lineWidth: 1)
+                            .foregroundStyle(Color(.systemGray4))
+                    }
+                }
+                else{
+                    CollapesedPickerView(title: "Where", description: "Add destination")
+                        .padding()
                     
+
                 }
-                .frame(height: 44)
-                .padding(.horizontal)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(lineWidth: 1)
-                        .foregroundStyle(Color(.systemGray4))
-                }
+                
             }
             .padding()
             .background(.white)
+            .frame(height: selectedOption == .location ? 120 : 64)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .padding()
             .shadow(radius: 10)
@@ -63,17 +73,53 @@ struct DestinationSearchView: View {
             }
             
             // Date Selection
-            CollapesedPickerView(title: "When", description: "Add dates")
-                .onTapGesture {
+            VStack{
+                if selectedOption == .dates{
+                    HStack{
+                        Text("Show expanded guest")
+                        
+                        Spacer()
+                    }
+
+                }
+                else{
+                    CollapesedPickerView(title: "When", description: "Add dates")
+                }
+            }
+            .padding()
+            .frame(height: selectedOption == .dates ? 120 : 64)
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding()
+            .shadow(radius: 10)
+            .onTapGesture {
                     selectedOption = .dates
                 }
             
-            
-            // num quest view
-            CollapesedPickerView(title: "Who", description: "Add guests")
-                .onTapGesture {
+            // num guest view
+            VStack{
+                if selectedOption == .guests{
+                    HStack{
+                        Text("Show expanded guest")
+                        
+                        Spacer()
+                    }
+
+                }
+                else{
+                    CollapesedPickerView(title: "Who", description: "Add guests")
+                }
+            }
+            .padding()
+            .frame(height: selectedOption == .guests ? 120 : 64)
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding()
+            .shadow(radius: 10)
+            .onTapGesture {
                     selectedOption = .guests
                 }
+            
         }
     }
 }
@@ -101,10 +147,6 @@ struct CollapesedPickerView: View {
             .fontWeight(.semibold)
             .font(.subheadline)
         }
-        .padding()
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .padding()
-        .shadow(radius: 10)
+        
     }
 }
