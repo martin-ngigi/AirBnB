@@ -24,15 +24,33 @@ struct DestinationSearchView: View {
     
     var body: some View {
         VStack {
-            Button{
-                withAnimation(.easeOut){ // or .snappy
-                    show.toggle()
+            HStack {
+                // Cancel button
+                Button{
+                    withAnimation(.easeOut){ // or .snappy
+                        show.toggle()
+                    }
+                } label: {
+                    Image(systemName: "xmark.circle")
+                        .imageScale(.large)
+                        .foregroundStyle(.black)
                 }
-            } label: {
-                Image(systemName: "xmark.circle")
-                    .imageScale(.large)
+                
+                Spacer()
+                
+                // Clear button
+                // show button when destination is not empty
+                if !destination.isEmpty{
+                    Button("Clear"){
+                        // only clears when user types texts
+                        destination = ""
+                    }
                     .foregroundStyle(.black)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                }
             }
+            .padding()
             
             // Location
             VStack(alignment: .leading){
@@ -130,19 +148,29 @@ struct DestinationSearchView: View {
                     CollapesedPickerView(title: "Who", description: "Add guests")
                 }
             }
-            .padding()
+            .modifier(CollapesableDestinationviewModifier()) // custom modifier
             .frame(height: selectedOption == .guests ? 120 : 64)
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding()
-            .shadow(radius: 10)
             .onTapGesture {
                     selectedOption = .guests
                 }
             
+            Spacer()
+            
         }
     }
 }
+
+struct CollapesableDestinationviewModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding()
+            .shadow(radius: 10)
+    }
+}
+
 
 struct DestinationSearchView_Previews: PreviewProvider {
     static var previews: some View {
