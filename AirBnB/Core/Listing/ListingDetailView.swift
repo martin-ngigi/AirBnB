@@ -9,16 +9,7 @@ import SwiftUI
 import MapKit
 
 struct ListingDetailView: View {
-    var images = [
-        "bathroom",
-        "bedroom1",
-        "bedroom2",
-        "front",
-        "kitchen",
-        "living_room",
-        "master_bedroom"
-    ]
-    
+
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -186,6 +177,7 @@ struct ListingDetailView: View {
             }
             
         }
+        .toolbar(.hidden, for: .tabBar) // hide tabBar
         .ignoresSafeArea()
         .padding(.bottom, 64)
         .overlay(alignment: .bottom){
