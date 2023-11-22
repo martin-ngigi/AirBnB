@@ -20,6 +20,7 @@
 		A3DAEE8F2B0E0F86008CD0F0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE8E2B0E0F86008CD0F0 /* ProfileView.swift */; };
 		A3DAEE912B0E12BA008CD0F0 /* ProfileOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE902B0E12BA008CD0F0 /* ProfileOptionRowView.swift */; };
 		A3DAEE932B0E145C008CD0F0 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE922B0E145C008CD0F0 /* WishListView.swift */; };
+		A3DAEE972B0E1622008CD0F0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE962B0E1622008CD0F0 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A3DAEE8E2B0E0F86008CD0F0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A3DAEE902B0E12BA008CD0F0 /* ProfileOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionRowView.swift; sourceTree = "<group>"; };
 		A3DAEE922B0E145C008CD0F0 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
+		A3DAEE962B0E1622008CD0F0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		A3DAEE7B2B0B6EE3008CD0F0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				A3DAEE962B0E1622008CD0F0 /* MainTabView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				A3DAEE8D2B0C8A8A008CD0F0 /* DestinationSearchView.swift in Sources */,
 				A3DAEE862B0B7E8C008CD0F0 /* SearchAndFilter.swift in Sources */,
 				A3DAEE842B0B729A008CD0F0 /* ListingItemView.swift in Sources */,
+				A3DAEE972B0E1622008CD0F0 /* MainTabView.swift in Sources */,
 				A3DAEE692B0B6CFA008CD0F0 /* ContentView.swift in Sources */,
 				A3DAEE932B0E145C008CD0F0 /* WishListView.swift in Sources */,
 				A3DAEE822B0B6F92008CD0F0 /* ExploreView.swift in Sources */,
