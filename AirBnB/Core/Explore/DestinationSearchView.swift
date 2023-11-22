@@ -18,6 +18,9 @@ struct DestinationSearchView: View {
     @Binding var show: Bool
     @State private var destination = ""
     @State private var selectedOption: DestinationSearchOptions = .location
+    @State private var startDate = Date()
+    @State private var endDate = Date()
+    @State private var numGuests = 1
     
     var body: some View {
         VStack {
@@ -75,11 +78,16 @@ struct DestinationSearchView: View {
             // Date Selection
             VStack{
                 if selectedOption == .dates{
-                    HStack{
-                        Text("Show expanded guest")
+                    Text("When's your trip ?")
+                    
+                    VStack{
+                        DatePicker("From", selection: $startDate, displayedComponents: .date)
                         
-                        Spacer()
+                        Divider()
+                        
+                        DatePicker("To", selection: $endDate, displayedComponents: .date)
                     }
+                    
 
                 }
                 else{
@@ -99,10 +107,22 @@ struct DestinationSearchView: View {
             // num guest view
             VStack{
                 if selectedOption == .guests{
-                    HStack{
-                        Text("Show expanded guest")
-                        
-                        Spacer()
+                    Text("Who's coming")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                    
+                    Stepper {
+                        Text("\(numGuests) Adults")
+                    } onIncrement: {
+                        //NB: To see change, long press or hold it down
+                        numGuests += 1
+                        //numGuests = numGuests + 1
+                        print("Add 1 , total: \(numGuests)")
+                    } onDecrement: {
+                        //NB: To see change, long press or hold it down
+                        guard numGuests > 1 else { return }
+                        numGuests -= 1
+                        print("Subtract 1, total: \(numGuests)")
                     }
 
                 }
