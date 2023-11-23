@@ -8,6 +8,9 @@
 import Foundation
 
 struct DeveloperPreview{
+    
+    static let shared = DeveloperPreview()
+    
     var listings: [Listing] = [
         .init(
             id: NSUUID().uuidString,
@@ -31,8 +34,8 @@ struct DeveloperPreview{
                 "master_bedroom"
             ],
             address: "Kileleshwa, Nairobi, Kenya",
-            city: "Nairobi",
-            state: "Nairobi",
+            city: "Kiambu",
+            state: "Kenya",
             title: "Nairobi Kenya",
             rating: 4.3,
             features: [.selfCheckin, .superHost],
@@ -62,7 +65,7 @@ struct DeveloperPreview{
             ],
             address: "Muthaiga, Nairobi, Kenya",
             city: "Nairobi",
-            state: "Nairobi",
+            state: "Kenya",
             title: "Nairobi Kenya",
             rating: 3.9,
             features: [.selfCheckin],
@@ -82,7 +85,7 @@ struct DeveloperPreview{
             latitude: -1.3720659,
             longitude: 36.84194619,
             imageUrls: [
-                "master_bedroom"
+                "master_bedroom",
                 "bathroom",
                 "bedroom1",
                 "bedroom2",
@@ -92,7 +95,7 @@ struct DeveloperPreview{
             ],
             address: "Lavington, Nairobi, Kenya",
             city: "Nairobi",
-            state: "Nairobi",
+            state: "Kenya",
             title: "Nairobi Kenya",
             rating: 4.7,
             features: [.selfCheckin, .superHost],
@@ -123,7 +126,7 @@ struct DeveloperPreview{
                 ],
                 address: "Lavington, Nairobi, Kenya",
                 city: "Nairobi",
-                state: "Nairobi",
+                state: "Kenya",
                 title: "Nairobi Kenya",
                 rating: 4.7,
                 features: [.selfCheckin, .superHost],

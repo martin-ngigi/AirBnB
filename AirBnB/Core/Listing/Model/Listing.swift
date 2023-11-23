@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Listing: Identifiable, Codable{
+struct Listing: Identifiable, Codable, Hashable{
     let id: String
     let owenerUid: String
     let owenerName: String
@@ -37,7 +37,7 @@ enum ListingFeatures: Int, Codable, Identifiable, Hashable{
     var imageName: String {
         switch self{
         case .selfCheckin: return "door.left.hand.open"
-        case .superHost: return "modal"
+        case .superHost: return "medal"
         }
     }
     

@@ -11,12 +11,13 @@ import MapKit
 struct ListingDetailView: View {
 
     @Environment(\.dismiss) var dismiss
+    let listing: Listing
     
     var body: some View {
         ScrollView{
             ///sliding images
             ZStack(alignment: .topLeading) {
-                ListingImageCarouselView()
+                ListingImageCarouselView(listing: listing)
                     .frame(height: 320)
                 
                 Button{
@@ -34,7 +35,7 @@ struct ListingDetailView: View {
             }
            
             VStack(alignment: .leading){
-                Text("Miami, Villa")
+                Text(listing.title)
                     .font(.title)
                     .fontWeight(.semibold)
                 
@@ -42,7 +43,7 @@ struct ListingDetailView: View {
                     HStack(spacing: 2){
                         Image(systemName: "star.fill")
                         
-                        Text("4.8")
+                        Text("\(listing.rating)")
                         
                         Text(" - ")
                         
@@ -52,7 +53,7 @@ struct ListingDetailView: View {
                     }
                     .foregroundStyle(.black)
                     
-                    Text("Miami, Florida")
+                    Text("\(listing.city), \(listing.state)")
                 }
                 .font(.caption)
                 
@@ -66,15 +67,15 @@ struct ListingDetailView: View {
             // host info view
             HStack{
                 VStack(alignment: .leading, spacing: 4){
-                    Text("Entire Villa hosted by John Smith")
+                    Text("Entire \(listing.type.description) hosted by \(listing.owenerName)")
                         .font(.headline)
                         .frame(width: 250, alignment: .leading)
                     
                     HStack(spacing: 2){
-                        Text("4 guests -")
-                        Text("4 bedroom -")
-                        Text("4 beds -")
-                        Text("4 baths -")
+                        Text("\(listing.numberOfGuests) guests -")
+                        Text("\(listing.numberOfBedrooms) bedrooms-")
+                        Text("\(listing.numberOfBeds) beds -")
+                        Text("\(listing.numberOfBathrooms) baths -")
                     }
                     .font(.caption)
                 }
@@ -82,7 +83,7 @@ struct ListingDetailView: View {
                 
                 Spacer()
                 
-                Image("default")
+                Image(listing.owenerImageImageUrl)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 64, height: 64)
@@ -95,16 +96,16 @@ struct ListingDetailView: View {
             
             // Listing features
             VStack(alignment: .leading, spacing: 16){
-                ForEach(0 ..< 2) { feature in
+                ForEach(listing.features) { feature in
                     HStack(spacing: 12){
-                        Image(systemName: "medal")
+                        Image(systemName: feature.imageName)
                         
                         VStack(alignment: .leading){
-                            Text("Superhost")
+                            Text(feature.title)
                                 .font(.footnote)
                                 .fontWeight(.semibold)
                             
-                            Text("Superhosts are experienced, highly rated hosts who are commited to providing great stars for guests ")
+                            Text(feature.subTitle)
                                 .font(.caption)
                                 .foregroundStyle(.gray)
                         }
@@ -124,7 +125,7 @@ struct ListingDetailView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 16){
-                        ForEach(1 ..< 5) { bedroom in
+                        ForEach(1 ... listing.numberOfBeds, id: \.self) { bedroom in
                             VStack{
                                 Image(systemName: "bed.double")
                                 
@@ -146,13 +147,13 @@ struct ListingDetailView: View {
                 Text("What this place offers.")
                     .font(.headline)
                 
-                ForEach(0 ..< 5 ){ feature in
+                ForEach(listing.amenities){ amenity in
                     HStack{
                         
-                        Image(systemName: "wifi")
+                        Image(systemName: amenity.imageName)
                             .frame(width: 32)
                         
-                        Text("Wifi")
+                        Text(amenity.title)
                         
                         Spacer()
                     }
@@ -169,7 +170,7 @@ struct ListingDetailView: View {
                     Text("Where you'll be ")
                         .font(.headline)
                     
-                    Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -1.292066, longitude: 36.821946), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))))
+                    Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: listing.latitude, longitude: listing.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))))
                         .frame(height: 200)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     
@@ -186,11 +187,15 @@ struct ListingDetailView: View {
                 
                 HStack{
                     VStack(alignment: .leading){
-                        Text("$500")
+                        Text("$\(listing.pricePerNight)")
                             .font(.footnote)
                             .fontWeight(.semibold)
                         
                         Text("Total before Taxes")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                        
+                        Text("Oct 15 - 20")
                             .font(.footnote)
                             .fontWeight(.semibold)
                             .underline()
@@ -219,6 +224,6 @@ struct ListingDetailView: View {
 
 struct ListingDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListingDetailView()
+        ListingDetailView(listing: DeveloperPreview.shared.listings[0])
     }
 }
