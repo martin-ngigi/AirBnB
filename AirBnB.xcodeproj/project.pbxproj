@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3A0AE502B27044B00216DCF /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = A3A0AE4F2B27044B00216DCF /* readme.md */; };
 		A3DAEE672B0B6CFA008CD0F0 /* AirBnBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE662B0B6CFA008CD0F0 /* AirBnBApp.swift */; };
 		A3DAEE692B0B6CFA008CD0F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAEE682B0B6CFA008CD0F0 /* ContentView.swift */; };
 		A3DAEE6B2B0B6CFC008CD0F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DAEE6A2B0B6CFC008CD0F0 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3A0AE4F2B27044B00216DCF /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		A3DAEE632B0B6CFA008CD0F0 /* AirBnB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirBnB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DAEE662B0B6CFA008CD0F0 /* AirBnBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBnBApp.swift; sourceTree = "<group>"; };
 		A3DAEE682B0B6CFA008CD0F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		A3DAEE5A2B0B6CFA008CD0F0 = {
 			isa = PBXGroup;
 			children = (
+				A3A0AE4F2B27044B00216DCF /* readme.md */,
 				A3DAEE652B0B6CFA008CD0F0 /* AirBnB */,
 				A3DAEE642B0B6CFA008CD0F0 /* Products */,
 			);
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3DAEE6F2B0B6CFC008CD0F0 /* Preview Assets.xcassets in Resources */,
+				A3A0AE502B27044B00216DCF /* readme.md in Resources */,
 				A3DAEE6B2B0B6CFC008CD0F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
